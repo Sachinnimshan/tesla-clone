@@ -1,27 +1,15 @@
 import React from 'react';
-import MenuItem from './MenuItem';
 import './Menu.css';
+import {Link} from 'react-router-dom';
+import {HeaderLinksData} from './HeaderLinks';
 
-function Menu({Title}) {
+function Menu({closesidebar}) {
     return (
         <div className='menu'>
-            <MenuItem Title='EXISTING INVENTORY'/>
-            <MenuItem Title='USED INVENTORY'/>
-            <MenuItem Title='TRADE-IN'/>
-            <MenuItem Title='EXISTING INVENTORY'/>
-            <MenuItem Title='CYBERTRUCK'/>
-            <MenuItem Title='ROADSTER'/>
-            <MenuItem Title='SEMI'/>
-            <MenuItem Title='CHARGING'/>
-            <MenuItem Title='POWERWALL'/>
-            <MenuItem Title='COMMERCIAL SOLAR'/>
-            <MenuItem Title='TEST DRIVE'/>
-            <MenuItem Title='CHARGING'/>
-            <MenuItem Title='POWERWALL'/>
-            <MenuItem Title='COMMERCIAL SOLAR'/>
-            <MenuItem Title='FIND US'/>
-            <MenuItem Title='SUPPORT'/>
-            <MenuItem Title='SRI LANKA'/>
+           {HeaderLinksData.SidebarData.map((sblink)=>(
+               <div className='menu-item' key={sblink.Title}>
+                   <Link to={sblink.path} onClick={closesidebar} className={sblink.SBCName}>{sblink.Title}</Link></div>
+           ))}
         </div>
     )
 }

@@ -8,11 +8,13 @@ import Menu from './components/Header/Menu';
 function App() {
 
   const [sidebar, setsidebar] = useState(false);
+  const closesidebar=()=> setsidebar(false);
+
   return (
     <div className='app-container'>
       <Router>
       <Header sidebar={sidebar} setsidebar={setsidebar}/>
-      {sidebar && <Menu/>}
+      {sidebar && <Menu closesidebar={closesidebar}/>}
         <Switch>
           <Route exact path='/' component={HomeScreen}/>
         </Switch>

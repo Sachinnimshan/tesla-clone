@@ -39,6 +39,11 @@ export const HeaderLinksData = {
             SBCName: 'side-bar-header-links'
         },
         {
+            Title: 'USED INVENTORY',
+            path: '/',
+            SBCName: 'side-bar-header-links'
+        },
+        {
             Title: 'TRADE-IN',
             path: '/',
             SBCName: 'side-bar-header-links'
