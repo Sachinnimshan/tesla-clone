@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Header from './components/Header/Header';
+import HomeScreen from './components/Home/HomeScreen';
+import Menu from './components/Header/Menu';
 
 function App() {
+
+  const [sidebar, setsidebar] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+      <Router>
+      <Header sidebar={sidebar} setsidebar={setsidebar}/>
+      {sidebar && <Menu/>}
+        <Switch>
+          <Route exact path='/' component={HomeScreen}/>
+        </Switch>
+      </Router>
     </div>
   );
 }
